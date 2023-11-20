@@ -47,13 +47,11 @@ export class BaseParser {
     const stepValue = parseInt(stepPart, 10);
     let times: number[] = [];
 
-    // Handle the case where the range part is '*', which means "every stepValue".
     if (rangePart === "*") {
       for (let i = this.rangeStart; i <= this.rangeEnd; i += stepValue) {
         times.push(i);
       }
     } else {
-      // Handle the case where the range part is a specific start, or a range.
       const rangeBounds = rangePart.split("-").map(Number);
       const rangeStart = rangeBounds[0];
       const rangeEnd =
